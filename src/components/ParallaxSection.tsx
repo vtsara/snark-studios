@@ -8,6 +8,7 @@ interface ParallaxSectionProps {
   children: React.ReactNode;
   backgroundImage?: string;
   overlayColor?: string;
+  id?: string; // Added id prop to the interface
 }
 
 const ParallaxSection = ({ 
@@ -15,7 +16,8 @@ const ParallaxSection = ({
   speed = 0.5,
   children,
   backgroundImage,
-  overlayColor
+  overlayColor,
+  id
 }: ParallaxSectionProps) => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -43,6 +45,7 @@ const ParallaxSection = ({
   return (
     <div 
       ref={sectionRef}
+      id={id}
       className={cn("relative overflow-hidden", className)}
     >
       {backgroundImage && (

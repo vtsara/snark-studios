@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { Motion } from 'lucide-react';
+import { Code } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const Navbar = () => {
@@ -30,7 +30,7 @@ const Navbar = () => {
             "transition-opacity duration-300",
             isSticky ? "opacity-100" : "opacity-0"
           )}>
-            <Motion className="h-8 w-8 mr-2 text-[#3dace2]" />
+            <Code className="h-8 w-8 mr-2 text-[#3dace2]" />
             <span className="font-bebas text-black">DEV</span>
           </span>
         </div>
