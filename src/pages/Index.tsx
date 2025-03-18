@@ -7,6 +7,7 @@ import ServiceCard from '@/components/ServiceCard';
 import ContactForm from '@/components/ContactForm';
 import ScrollEffect from '@/components/ScrollEffect';
 import ParallaxSection from '@/components/ParallaxSection';
+import HorizontalScroll from '@/components/HorizontalScroll';
 
 const Index = () => {
   return (
@@ -124,6 +125,9 @@ const Index = () => {
           </div>
         </div>
       </ParallaxSection>
+      
+      {/* Portfolio Horizontal Scroll Section */}
+      <HorizontalScroll className="mt-0" />
       
       {/* Contact Section */}
       <section id="contact" className="relative py-24 bg-[#cede54] overflow-hidden">
