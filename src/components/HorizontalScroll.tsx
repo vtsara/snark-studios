@@ -25,24 +25,30 @@ const HorizontalScroll = ({ className }: HorizontalScrollProps) => {
 
     // Get the width of the horizontal content
     const horizontalWidth = horizontal.scrollWidth;
-
-    // Create the horizontal scrolling effect
+    
+    // Create the horizontal scrolling effect with fixed pin duration
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: trigger,
-        start: 'top top',
-        end: () => `+=${horizontalWidth}`,
-        scrub: 1,
+        trigger: section,
+        start: "top top",
+        end: `+=${horizontalWidth}`,
+        scrub: 0.5,
         pin: true,
         anticipatePin: 1,
-        invalidateOnRefresh: true,
+        pinSpacing: true,
+        snap: {
+          snapTo: 1 / 9, // Divide by (number of sections - 1)
+          duration: { min: 0.1, max: 0.3 },
+          delay: 0,
+          ease: "power1.inOut"
+        },
       }
     });
 
     // Animate the horizontal container
     tl.to(horizontal, {
       x: () => -(horizontalWidth - window.innerWidth),
-      ease: 'none'
+      ease: "none"
     });
 
     // Clean up ScrollTrigger on component unmount
@@ -55,6 +61,7 @@ const HorizontalScroll = ({ className }: HorizontalScrollProps) => {
     <section 
       ref={sectionRef} 
       className={cn("relative overflow-hidden bg-black text-white", className)}
+      style={{ height: "100vh" }}
     >
       <div 
         ref={triggerRef}
@@ -62,7 +69,8 @@ const HorizontalScroll = ({ className }: HorizontalScrollProps) => {
       ></div>
       <div 
         ref={horizontalRef}
-        className="flex flex-nowrap h-screen"
+        className="flex flex-nowrap h-full"
+        style={{ width: "1000vw" }} // Set explicit width to ensure proper scrolling
       >
         {[...Array(10)].map((_, index) => (
           <div 
