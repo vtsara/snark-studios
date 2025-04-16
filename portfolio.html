@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="/site-header.js"></script>
+</head>
+
+<body>
+    <site-header></site-header>
+    <main>
+        <header class="entry-header">
+            <h1>Portfolio</h1>
+        </header><!-- .entry-header -->
+        <div id="ss-page-portfolio" class="site-main" role="main">
+            <div class="entry-content">
+                <div>
+                    <h5>We've worked with a whole slew of clients over the past almost-15-years, and we don't play
+                        favorites.</h5>
+                    <h6>So, these are definitely NOT our most favorite clients or projects of all time, only highlights
+                        of the best work we've, like, ever done.</h6>
+                    <p class="center mini-p">Truly, honored to work with these and many other small businesses in the
+                        Triangle and beyond.</p>
+                </div>
+                <hr />
+                <div class="projects-container">
+                    <script>
+                        fetch('clients.json')
+                            .then(res => res.json())
+                            .then(clients => {
+                                const container = document.getElementById('clients');
+
+                                clients.forEach(client => {
+                                    const div = document.createElement('div');
+                                    div.classList.add('project-box', 'fadeup-effect');
+
+                                    div.innerHTML = `
+                                <div class="project-img">
+                                <img src="${client.image.src}" alt="${client.image.alt}">
+                                </div>
+                                <div class="project-info">
+                                <h4 class="project-title">${client.name}</h4>
+                                <div class="project-client">${client.type}</div>
+                                <div class="project-summary">
+                                    <p>${client.summary}</p>
+                                    <a class="ss-btn project-sample" href="${client.link}" target="_blank" rel="noopener noreferrer">See it for real</a>
+                                    <h5>partners</h5>
+                                    <p>${client.partners}</p>
+                                </div>
+                                <h3>&lt;tech specs&gt;</h3>
+                                <p>${client.specs}</p>
+                                </div>
+                            `;
+
+                                    container.appendChild(div);
+                                });
+
+                                // Optional: trigger fade in after a slight delay
+                                setTimeout(() => {
+                                    document.querySelectorAll('.fadeup-effect').forEach(el => {
+                                        el.classList.add('fadeInUp');
+                                    });
+                                }, 300);
+                            });
+                    </script>
+                </div>
+            </div> <!-- /.entry-content -->
+    </main>
+    <footer>
+        <p>&copy; 2025 Snark Studios</p>
+    </footer>
+</body>
+
+</html>

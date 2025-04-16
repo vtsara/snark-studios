@@ -1,0 +1,98 @@
+[
+    {
+        "name": "Somotion Studios",
+        "type": "UX concepts + web development",
+        "summary": "Working with one of our favorite Raleigh animation and design mavens, Sophia Cipriano, we built a lightweight animated website experience to showcase her talents and projects.",
+        "link": "https://somotionstudios.com",
+        "partners": "Somo Studios: brand + design",
+        "specs": "custom WordPress them build, fullpage.js, js animations",
+        "image": {
+            "src": "media/client-somo.gif",
+            "alt": "responsive mockups for Somotion Studios website"
+        }
+    },
+    {
+        "name": "Story in a Bottle Wines",
+        "type": "development, API integrations, ecommerce",
+        "summary": "This newly opened Bellevue wine store needed an online store + home to support it's growth and sales. We built an integration between web store and brick+mortar point-of-sale system, and are creating custom rules for the ecommerce store + perfecting the site experience for customers. ",
+        "link": "https://storyinabottlewines.com",
+        "partners": "Alicia Thornber, branding + design",
+        "specs": "UX, POS API integration, custom Woocommerce rules, maintenance",
+        "image": {
+            "src": "media/client-siab.png",
+            "alt": "responsive mockups"
+        }
+    },
+    {
+        "name": "lucettegrace patisserie",
+        "type": "design, development, API integrations, hosting",
+        "summary": "This contemporary patisserie wanted to both modernize their web presence and build better systems for catering orders + special events. We designed a sleek site to evoke the feels of this modern cafe, and built an e-commerce shop to allow customers to order read-to-pickup treats + lunch, place one-time catering orders, and added a workflow for reoccurring catering + extra special occasions.",
+        "link": "https://lucettegrace.com",
+        "partners": "yellowdog:creative, design concepting + illustrations",
+        "specs": "WordPress child theme, custom e-commerce workflows + backend rules ",
+        "image": {
+            "src": "media/client-lucettegrace.png",
+            "alt": "responsive mockups"
+        }
+    },
+    {
+        "name": "Jessica Harika",
+        "type": "UX concept + page design, development, maintenance, hosting",
+        "summary": "Jessica Harika is a classically trained opera singer and director, currently working in NYC. She recently had a new brand designed and wanted a more advanced portfolio to display her growing resume of singing, directing, and producing performances.",
+        "link": "https://jessicaharika.com",
+        "partners": "Jennie Moser Design: branding",
+        "specs": "UX concepting + page design, custom WordPress theme build, Flywheel hosting",
+        "image": {
+            "src": "media/client-Jess.png",
+            "alt": "responsive mockups"
+        }
+    },
+    {
+        "name": "Elevate Land Group",
+        "type": "development",
+        "summary": "We partnered with a designer to bring a sleek sales site to life for this boutique development firm, to showcase their growing portfolio of available land and properties in the mountains of NC.",
+        "link": "https://elevatelandgroup.com",
+        "partners": "Ed Forić, brand + design",
+        "specs": "custom WordPress theme, hosting, maintenance",
+        "image": {
+            "src": "media/client-elg.png",
+            "alt": "responsive mockups"
+        }
+    },
+    {
+        "name": "RGA Investments",
+        "type": "PM, UX concepting, strategy, development",
+        "summary": "This long-time hosting client came to us to update their web presence to accommodate their ever-growing client base. We facilitated new copy, strategized UX, and built a custom site to showcase + house their content plans.",
+        "link": "https://rgainvestments.com",
+        "partners": "yellowdog:creative, rebrand + web design, Cinema Dolce, video",
+        "specs": "UX, custom Wordpress theme, js, automations, maintenance, hosting",
+        "image": {
+            "src": "media/client-rga.png",
+            "alt": "responsive mockups"
+        }
+    },
+    {
+        "name": "Law Offices of Kevin B. Long",
+        "type": "Web design, development",
+        "summary": "We build a quick landing page for this new Raleigh defense firm, and are working with the client and team to develop a content strategy and more robust educational website.",
+        "link": "#",
+        "partners": "Elspeth Long: branding",
+        "specs": "UX, Wordpress site via Oxygen, hosting",
+        "image": {
+            "src": "media/client-kblonglaw.png",
+            "alt": "responsive mockups"
+        }
+    },
+    {
+        "name": "Law Offices of Kevin B. Long",
+        "type": "PM, design, development, content + SEO strategy",
+        "summary": "Full build-out and content strategy",
+        "link": "https://kblonglaw.com",
+        "partners": "Elspeth Long: content",
+        "specs": "UX, Wordpress site via Oxygen, hosting",
+        "image": {
+            "src": "media/kblv2.png",
+            "alt": "responsive mockups"
+        }
+    }
+]
