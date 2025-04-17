@@ -2,16 +2,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // page load check + fading action
     window.addEventListener('load', () => {
+        console.log('page is loaded!');
         const hero = document.getElementById('ss-welcome');
+        if (!hero) return; // Exit early if not on home page
+
         const inner = hero.querySelector('.inner');
+        const elevator = document.querySelector('.elevator');
         const logo = inner.querySelector('img');
         const h2 = inner.querySelector('h2');
-        const h3 = inner.querySelector('h3');
-        const subtitleDiv = inner.querySelector('.boom');
-        const bgBox = hero.querySelector('.bg-box');
-
-        console.log(logo);
-        console.log(h2);
+        const h3 = elevator.querySelector('h3');
+        const boom = elevator.querySelector('.boom');
+        const bgBox = elevator.querySelector('.bg-box');
 
         // Step 1: Fade in background
         setTimeout(() => {
@@ -27,15 +28,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Step 3 & 4: Scroll-triggered elements
         const scrollReveal = () => {
-            const triggerBottom = window.innerHeight * 0.8;
+            const triggerBottom = window.innerHeight * 0.6;
 
-            const h3Top = h3.getBoundingClientRect().top;
-            const divTop = subtitleDiv.getBoundingClientRect().top;
-            const boxTop = bgBox.getBoundingClientRect().top;
+            if (h3 && h3.getBoundingClientRect().top < triggerBottom) {
+                h3.classList.add('hero-content-visible');
+            }
 
-            if (h3Top < triggerBottom) h3.classList.add('hero-content-visible');
-            if (divTop < triggerBottom) subtitleDiv.classList.add('hero-content-visible');
-            if (boxTop < triggerBottom) bgBox.classList.add('hero-content-visible');
+            if (boom && boom.getBoundingClientRect().top < triggerBottom) {
+                boom.classList.add('hero-content-visible');
+            }
+
+            if (bgBox && bgBox.getBoundingClientRect().top < triggerBottom) {
+                bgBox.classList.add('hero-content-visible');
+            }
         };
 
         window.addEventListener('scroll', scrollReveal);

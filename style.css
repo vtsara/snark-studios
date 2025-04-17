@@ -1241,11 +1241,12 @@ article.page .entry-title {
     padding: 80px 20px 100px;
 }
 .elevator h3 {
-font-family: Courier;
+    font-family: Courier;
     font-size: 22px;
     line-height: 25px;
     max-width: 400px;
     margin: 20px;
+    opacity: 0;
 }
 
 .elevator .boom {
@@ -1258,6 +1259,7 @@ font-family: Courier;
     font-family: bebas;
     font-size: 32px;
     line-height: .98;
+    opacity: 0;
 }
 .elevator .bg-box {
     position: relative;
@@ -1268,9 +1270,8 @@ font-family: Courier;
     max-width:800px;
 }
 .elevator .bg-box {
-  opacity: 0;
-  transition: opacity 0.6s ease, transform 0.6s ease;
-  transform: translateX(-100px);
+  transition: transform 0.8s ease;
+  transform: translateX(-100vw);
 }
 .elevator .bg-box p {
     position: relative;
@@ -1286,7 +1287,9 @@ font-family: Courier;
     background-color: #3dace2;
     z-index: 0;
 }
-
+.hero-content-visible.bg-box {
+    transform: translateX(0);
+}
 
 #ss-services {
     padding: 100px 20px;
