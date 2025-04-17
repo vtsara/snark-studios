@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Step 3 & 4: Scroll-triggered elements
         const scrollReveal = () => {
-            const triggerBottom = window.innerHeight * 0.6;
+            const triggerBottom = window.innerHeight * 0.65;
 
             if (h3 && h3.getBoundingClientRect().top < triggerBottom) {
                 h3.classList.add('hero-content-visible');
@@ -66,54 +66,58 @@ document.addEventListener('DOMContentLoaded', () => {
 
         }
 
+
         window.addEventListener('scroll', updateBackgroundImage);
-
-        // smooth scrolling  TODO: not working!
-        const links = document.querySelectorAll('div[class^="home"] a[href*="#"]:not([href="#"])');
-
-        links.forEach(link => {
-            link.addEventListener('click', function (e) {
-                const { pathname, hostname, hash } = this;
-
-                const isSamePage = window.location.pathname.replace(/^\//, '') === pathname.replace(/^\//, '') &&
-                    window.location.hostname === hostname;
-
-                if (isSamePage) {
-                    const targetId = hash.slice(1);
-                    const target = document.getElementById(targetId) || document.querySelector(`[name="${targetId}"]`);
-
-                    if (target) {
-                        e.preventDefault();
-
-                        window.scrollTo({
-                            top: target.offsetTop,
-                            behavior: 'smooth'
-                        });
-                    }
-                }
-            });
-        });
-
-        // fade up behavior 
-        const fadeObjects = document.querySelectorAll('.fadeup-effect');
-
-        function animateObjects() {
-            const windowHeight = window.innerHeight;
-
-            fadeObjects.forEach(el => {
-                const offsetTop = el.getBoundingClientRect().top;
-                const percent = Math.floor((offsetTop / windowHeight) * 100);
-
-                if (percent < 80) {
-                    el.classList.add('fadeInUp');
-                }
-            });
-        }
-
-        // Run on scroll
-        window.addEventListener('scroll', animateObjects);
-
-        // Run on load (in case some elements are already in view)
-        animateObjects();
     });
+
+    // smooth scrolling  TODO: not working!
+    const links = document.querySelectorAll('div[class^="home"] a[href*="#"]:not([href="#"])');
+
+    links.forEach(link => {
+        link.addEventListener('click', function (e) {
+            const { pathname, hostname, hash } = this;
+
+            const isSamePage = window.location.pathname.replace(/^\//, '') === pathname.replace(/^\//, '') &&
+                window.location.hostname === hostname;
+
+            if (isSamePage) {
+                const targetId = hash.slice(1);
+                const target = document.getElementById(targetId) || document.querySelector(`[name="${targetId}"]`);
+
+                if (target) {
+                    e.preventDefault();
+
+                    window.scrollTo({
+                        top: target.offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    });
+
+    // fade up behavior 
+    const fadeObjects = document.querySelectorAll('.fadeup-effect');
+
+    function animateObjects() {
+        const windowHeight = window.innerHeight;
+
+        fadeObjects.forEach((el, index) => {
+            const offsetTop = el.getBoundingClientRect().top;
+            const percent = Math.floor((offsetTop / windowHeight) * 70);
+
+            if (percent < 80) {
+                console.log(el);
+                el.classList.add('fadeInUp');
+                el.style.animationDelay = `${index * 0.25}s`;
+            }
+        });
+    }
+
+    // Run on scroll
+    window.addEventListener('scroll', animateObjects);
+
+    // Run on load (in case some elements are already in view)
+    animateObjects();
+
 });
