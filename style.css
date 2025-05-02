@@ -841,7 +841,7 @@ input[type="submit"]:hover {
     transition: opacity .5s ease-in .2s;
 }
 
-.home .main-header.visible {
+.main-header.visible {
     transition: opacity .5s ease-in .2s;
     opacity: 1;
     pointer-events: auto;
@@ -968,7 +968,7 @@ input[type="submit"]:hover {
     flex: 1 0 50%;
 }
 
-/* Posts and pages
+/* pages
 --------------------------------------------- */
 
 .page-content,
@@ -980,11 +980,21 @@ input[type="submit"]:hover {
 header.entry-header {
     background-color: #cede54;
     padding: 30px 0 0;
-    height: 300px;
+    height: 200px;
+}
+
+.entry-header h1 {
+    font-size: 7rem;
+    position: relative;
+    line-height: 6.8rem;
+    text-align: center;
+    color: #3dace2;
+    top: 25%;
 }
 
 .site-main .entry-content {
     margin: 70px auto;
+    overflow: hidden;
 }
 
 .site-main h5 {
@@ -1203,7 +1213,7 @@ article.page .entry-title {
   background-color: #c485f0;
 }
 
-.hero-content-visible {
+.now-visible {
   opacity: 1 !important;
   transition: opacity 1s ease-in;
 }
@@ -1287,12 +1297,12 @@ article.page .entry-title {
     background-color: #3dace2;
     z-index: 0;
 }
-.hero-content-visible.bg-box {
+.now-visible.bg-box {
     transform: translateX(0);
 }
 
 #ss-services {
-    padding: 100px 20px;
+    padding: 70px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1308,7 +1318,7 @@ article.page .entry-title {
     justify-content: center;
     align-items: center;
     gap: 30px;
-    margin-bottom: 50px;
+    margin: 50px 0 50px;
 }
 #ss-services.hex-bkgr {
     background: linear-gradient(rgb(196 133 240 / 2%), rgb(196 133 240 / 45%) 97%), url(media/bkgr-light-hex.jpg);
@@ -1374,47 +1384,72 @@ article.page .entry-title {
     width: 95%;
 }
 
-#ss-about {
-    background: url('media/sara-parkbench.jpg');
-    background-color: #3dabe27b;
+
+.bio-section {
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  background: url('media/muffin-portrait.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center right;
-    position: relative;
-    min-height: 86vh;
 }
 
-#ss-about .overlay.bottom {
-    background: rgba(61, 171, 226, 0.5);
+
+.scroll-content {
+  position: relative;
+  z-index: 2;
+  padding: 20px;
+ background-color: var(--overlay-color, rgba(0, 0, 0, 0.5));
+  transition: background-color 0.1s linear;
+  pointer-events: none;
 }
 
-#ss-about .overlay.top {
-    background: linear-gradient(to bottom, rgba(35, 31, 32, 0.99) 0%,
-            rgba(35, 31, 32, 0.6) 20%,
-            rgba(35, 31, 32, 0) 35%,
-            rgba(35, 31, 32, 0) 100%)
-}
+.scroll-content .inner {
+    width: 100%;
+  color: white;
+  padding: 60px 20px;
+  overflow: visible;
+} 
 
 #ss-about h2 {
     text-align: center;
     color: #cede54;
     font-size: 3.5rem;
     line-height: 2.8rem;
-    margin: 100px 0 0;
+    transform: translateX(15%);
 }
 
-#ss-about .bio {
-    max-width: 500px;
-    width: 100%;
-    margin-left: 12%;
+.scroll-content .bio {
+max-width: 600px;
+    margin: 0 auto 0 7%;
+    padding-top: 20px;
 }
+
 
 #ss-about .bio p {
     font-family: 'Courier New';
-    font-weight: bold;
-    font-size: 20px;
+    font-size: 28px;
     color: #fff;
     line-height: 1.2;
+}
+
+.bio .ribbon {
+        height: 80px;
+    position: relative;
+}
+.bio .ribbon:after {
+    position: absolute;
+    content: '';
+    top: 0;
+    width: 100vw;
+    background-color: #c7da2c;
+    height: 40px;
+    transition: transform 0.8s ease;
+    transform: translateX(-120vw);
+}
+.bio .now-visible.ribbon:after {
+    transform: translateX(0);
 }
 
 #ss-about .aside {
@@ -1442,6 +1477,13 @@ article.page .entry-title {
     top: -4px;
 }
 
+#nicethings {
+    background-color: #c7da2c;
+    padding: 50px 0;
+    min-height: 110vh;
+
+}
+
 
 /* Custom Pages: About page */
 
@@ -1451,9 +1493,9 @@ article.page .entry-title {
     padding-top: 70px;
 }
 
-#page-about .entry-header {
+#ss-page-about h1 {
     text-align: right;
-    margin-right: 18%;
+    margin-right: 60px;
 }
 
 .ab-container {
@@ -1598,9 +1640,9 @@ article.page .entry-title {
 
 /* Custom Pages
 --------------------------------------------- 
-	- Web Dev Page
+	- Services Page
 	--------------------------------------------- */
-#ss-page-webdev .intro {
+#ss-page-svc .intro {
     max-width: 700px;
     margin: 30px auto;
     padding: 20px 40px;
@@ -1609,7 +1651,7 @@ article.page .entry-title {
     color: #fff;
 }
 
-#ss-page-webdev .intro:after {
+#ss-page-svc .intro:after {
     position: absolute;
     content: '';
     height: 100%;
@@ -1620,7 +1662,7 @@ article.page .entry-title {
     z-index: -1;
 }
 
-#ss-page-webdev .row {
+#ss-page-svc .row {
     display: flex;
     flex-direction: column;
     padding: 20px 0 0 12%;
@@ -1631,44 +1673,44 @@ article.page .entry-title {
     position: relative;
 }
 
-#ss-page-webdev .row:before {
+#ss-page-svc .row:before {
     position: absolute;
     content: '';
-    height: 83%;
-    top: 0;
-    right: 26%;
+    height: 96px;
+    top: 20px;
+    right: 16%;
     width: 100vw;
-    z-index: -1;
+    z-index: 1;
     border: 4px #cede54 solid;
 }
 
-#ss-page-webdev .bebas {
+#ss-page-svc .bebas {
     color: #c485f0;
     font-size: 25px;
     text-align: center;
     margin: 30px 0 0;
 }
 
-#ss-page-webdev h6 {
-    align-self: flex-end;
-    margin: 60px 0 20px;
+#ss-page-svc h6 {
+    align-self: center;
+    margin: 20px 0 20px;
 }
 
-#ss-page-webdev .row * {
+#ss-page-svc .row * {
     font-family: 'courier';
     max-width: 500px;
 }
 
-#ss-page-webdev .row ul {
+#ss-page-svc .row ul {
     margin: 0;
 }
 
-#ss-page-webdev .services {
+#ss-page-svc .services {
     position: relative;
     padding: 50px 20px 70px;
 }
 
-#ss-page-webdev .services:before {
+#ss-page-svc .services:before {
     content: "";
     position: absolute;
     top: 0;
@@ -1683,23 +1725,24 @@ article.page .entry-title {
     z-index: -1;
 }
 
-#ss-page-webdev .services {
+#ss-page-svc .services {
     position: relative;
     padding: 100px 20px 120px;
     display: flex;
     flex-direction: column;
 }
 
-.services>div {
+.services .svc {
     max-width: 1200px;
     display: flex;
     gap: 100px;
     align-items: center;
     justify-content: flex-start;
     padding-left: 30px;
+    padding-bottom: 50px;
 }
 
-.services>div>div {
+.services .svc>div {
     max-width: 470px;
     padding: 0 40px 0 0;
 }
@@ -1709,9 +1752,37 @@ article.page .entry-title {
     line-height: 2.1rem;
     font-size: 2.8rem;
 }
+.services h5 {
+text-align: left;
+position: relative;
+margin-left: 10px;
+max-width: max-content;
+font-size: 20px;
+}
+.services h5:before {
+position: absolute;
+content:"<";
+font-family: "Courier";
+font-size: inherit;
+left: -13px;
+    top: 1px;
+}
+.services h5:after {
+position: absolute;
+content:">";
+font-family: "Courier";
+font-size: inherit;
+right:-13px;
+    top: 1px;
+}
 
 .services p {
-    font-family: 'Courier';
+    font-family: 'Melbourne';
+    font-size: 20px;
+}
+
+.services p span {
+    font-style: italic;
 }
 
 .services .ss-btn {
@@ -1917,10 +1988,7 @@ article.page .entry-title {
 
 @media only screen and (max-width: 1023px) {
 
-    .genesis-nav-menu a {
-        padding-left: 10px;
-        padding-right: 10px;
-    }
+   
 
 }
 

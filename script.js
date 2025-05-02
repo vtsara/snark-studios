@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // page load check + fading action
     window.addEventListener('load', () => {
-        console.log('page is loaded!');
         const hero = document.getElementById('ss-welcome');
         if (!hero) return; // Exit early if not on home page
 
@@ -13,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const h3 = elevator.querySelector('h3');
         const boom = elevator.querySelector('.boom');
         const bgBox = elevator.querySelector('.bg-box');
+        const bioRibbon = document.querySelector(".ribbon");
 
         // Step 1: Fade in background
         setTimeout(() => {
@@ -20,9 +20,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Step 2: Fade in logo and h2
             setTimeout(() => {
-                inner.classList.add('hero-content-visible');
-                logo.classList.add('hero-content-visible');
-                h2.classList.add('hero-content-visible');
+                inner.classList.add('now-visible');
+                logo.classList.add('now-visible');
+                h2.classList.add('now-visible');
             }, 500);
         }, 200);
 
@@ -31,15 +31,19 @@ document.addEventListener('DOMContentLoaded', () => {
             const triggerBottom = window.innerHeight * 0.65;
 
             if (h3 && h3.getBoundingClientRect().top < triggerBottom) {
-                h3.classList.add('hero-content-visible');
+                h3.classList.add('now-visible');
             }
 
             if (boom && boom.getBoundingClientRect().top < triggerBottom) {
-                boom.classList.add('hero-content-visible');
+                boom.classList.add('now-visible');
             }
 
             if (bgBox && bgBox.getBoundingClientRect().top < triggerBottom) {
-                bgBox.classList.add('hero-content-visible');
+                bgBox.classList.add('now-visible');
+            }
+
+            if (bioRibbon && bioRibbon.getBoundingClientRect().top < triggerBottom) {
+                bioRibbon.classList.add('now-visible');
             }
         };
 
@@ -70,9 +74,9 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('scroll', updateBackgroundImage);
     });
 
-    // smooth scrolling  TODO: not working!
-    const links = document.querySelectorAll('div[class^="home"] a[href*="#"]:not([href="#"])');
-
+    // smooth scrolling  
+    const links = document.querySelectorAll('a[href*="#"]:not([href="#"])');
+    console.log(links);
     links.forEach(link => {
         link.addEventListener('click', function (e) {
             const { pathname, hostname, hash } = this;
@@ -107,12 +111,44 @@ document.addEventListener('DOMContentLoaded', () => {
             const percent = Math.floor((offsetTop / windowHeight) * 70);
 
             if (percent < 80) {
-                console.log(el);
                 el.classList.add('fadeInUp');
                 el.style.animationDelay = `${index * 0.25}s`;
             }
         });
     }
+
+    function interpolateColor(color1, color2, factor) {
+        return color1.map((c, i) => Math.round(c + factor * (color2[i] - c)));
+    }
+
+    function scrollOverlayEffect() {
+        const section = document.querySelector('.bio-section');
+        const content = section.querySelector('.scroll-content');
+
+        const rect = section.getBoundingClientRect();
+        const scrollPercent = Math.min(1, Math.max(0, -rect.top / rect.height));
+
+        let rgb, alpha;
+
+        if (scrollPercent < 0.3) {
+            rgb = [0, 0, 0];
+            alpha = 0.7 - (scrollPercent / 0.3) * (0.7 - 0.5);
+        } else if (scrollPercent >= 0.3 && scrollPercent < 0.5) {
+            const progress = (scrollPercent - 0.3) / (0.5 - 0.3);
+            alpha = 0.5 + progress * (0.5 - 0.35);
+            rgb = interpolateColor([0, 0, 0], [61, 172, 226], progress);
+        } else {
+            const progress = (scrollPercent - 0.5) / (1 - 0.5);
+            rgb = [61, 172, 226];
+            alpha = 0.6 + progress * (0.75 - 0.5);
+        }
+
+        const rgbaString = `rgba(${rgb.join(', ')}, ${alpha.toFixed(2)})`;
+        content.style.setProperty('--overlay-color', rgbaString);
+    }
+
+    window.addEventListener('scroll', scrollOverlayEffect);
+    scrollOverlayEffect();
 
     // Run on scroll
     window.addEventListener('scroll', animateObjects);

@@ -23,10 +23,10 @@ class SiteHeader extends HTMLElement {
                     </button>
 
                     <ul id="primary-menu" class="menu">
-                    <li><a href="/webdev.html">Help Yew?</a></li>
+                    <li><a href="/services.html">Help Yew?</a></li>
                     <li><a href="/portfolio.html">Portfolio</a></li>
                     <li><a href="/about.html">About</a></li>
-                    <li><a href="/contact.html">Contact</a></li>
+                    <li><a href="mailto:sara@snarkstudios.com" target="_blank">Contact</a></li>
                     </ul>
                 </nav>
                 </div>
