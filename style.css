@@ -530,7 +530,7 @@ hr {
     background-color: #c485f0;
     margin: 40px 0 70px;
     height: 3px;
-    box-shadow: 0 4px 6px 1px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 12px 0px rgba(0, 0, 0, 0.3);
 }
 
 ul,
@@ -594,9 +594,6 @@ a:active {
     text-decoration: none;
 }
 
-a:focus {
-    outline: thin dotted;
-}
 
 a:hover,
 a:active {
@@ -1336,7 +1333,6 @@ article.page .entry-title {
 .svc-box:hover {
     box-shadow: 13px 15px 8px rgb(177 95 208 / 50%);
     transition: all .3s ease-in;
-    cursor: pointer;
 }
 
 .svc-box h3 {
