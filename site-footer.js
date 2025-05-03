@@ -4,13 +4,13 @@ class SiteFooter extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
       
-        <footer>
+        <footer class="js">
         <h5>footnotes</h5>
         <div class="inner">
-            <p>This site was designed and developed by Snark Studios, obviously. Tech stack simple as apple pie, sans
+            <p class="fadeup-effect">This site was designed and developed by Snark Studios, obviously. Tech stack simple as apple pie, sans
                 fancy
                 crust art: html, css, and good ol' vanilla javascript. Long live the classics!</p>
-            <div class="socials">
+            <div class="socials fadeup-effect">
                 <a href="https://instagram.com/__snarkstudios" target="_blank">insta</a>
                 <a href="https://linkedin.com/in/saradlloyd/" target="_blank">linkedin</a>
                 <a href="mailto:sara@snarkstudios.com" target="_blank">email me like it's 1999</a>
