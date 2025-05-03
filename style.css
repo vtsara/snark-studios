@@ -1236,14 +1236,14 @@ article.page .entry-title {
 }
 
 .hero .movie {
-    height: 80vh;
+    height: 70vh;
     width: 100vw;
     background: linear-gradient(#c485f0de, #c485f073 50%), url("media/whatever.jpg");
   background-attachment: fixed; 
   background-repeat: no-repeat; 
   background-size: cover; 
-  background-position-x: center; 
-  background-position-y: 90px; /* // Show the bottom of the image - put 0 to start at the top --> This is what JS will update when the page is scrolled */
+  background-position: center 170px; 
+  overflow: hidden;
 }
 
 .elevator {
@@ -1719,15 +1719,22 @@ max-width: 600px;
     position: relative;
 }
 
-#ss-page-svc .row:before {
+#ss-page-svc .row.slide:before {
     position: absolute;
     content: '';
     height: 96px;
-    top: 20px;
-    right: 16%;
+    /* top: 20px;
+    right: 16%; */
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
     width: 100vw;
     z-index: 1;
     border: 4px #cede54 solid;
+    transition: transform 0.1s ease-out;
+    will-change: transform;
+    transform: translateY(var(--box-offset, 0));
 }
 
 #ss-page-svc .bebas {
@@ -1903,20 +1910,34 @@ footer p {
 }
 
 footer .socials {
-        display: inline-grid;
     font-family: 'Bebas';
     font-size: 1.9rem;
     margin-left: 7%;
     padding-bottom: 30px;
 }
 footer .socials a {
+    display: block;
     padding: 10px 0;
     line-height: 1;
+    max-width: fit-content;
 }
 footer .socials a:hover {
     color: #c7da2c;
 }
+footer .socials a:nth-child(2n):hover {
+    transform: translateX(15px);
+}
+footer .socials a:nth-child(2n-1):hover {
+    transform: translateX(-25px);
+}
+.socials p {
+    font-size: 12px;
+    text-align: left;
+}
 
+.footer .copyrt {
+    padding-bottom: 10px;
+}
 
 
 /* ANIMATIONS 

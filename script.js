@@ -52,26 +52,40 @@ document.addEventListener('DOMContentLoaded', () => {
         // parallax movie
         function updateBackgroundImage() {
 
-            // Get the landing page element
             const element = document.querySelector(".movie");
 
-            // Must be between between 1 and -1 exclusive - 0 yields no effect, 
             // negative values shift image up as the user scrolls down
             // positive values shift image down as the user scrolls down
-            const parallaxEffect = -.2
-
+            const parallaxEffect = -.4;
             // Must be the same as css background-position-y value
-            const offset = 90;
+            const offset = 170;
 
-            // Update the background-position-y style property using the vertical scroll position only if on desktop
-            // if (!isMobile.any()) {
-            element.style.backgroundPositionY = `calc(${parallaxEffect * window.scrollY}px + ${offset}px)`;
-            // }
+            const windowHeight = window.innerHeight;
+            const elementTop = element.getBoundingClientRect().top;
+            const startOffset = -1; // tweak this to control when the effect starts earlier/later
 
+            // How far into the view the element is, from 0 (not yet in) to 1 (fully passed)
+            const progress = 1 - (elementTop + startOffset) / windowHeight;
+            const clampedProgress = Math.max(0, Math.min(progress, 1));
+
+            const backgroundY = offset + clampedProgress * (parallaxEffect * element.offsetHeight);
+            element.style.backgroundPosition = `center ${backgroundY}px`;
         }
 
-
         window.addEventListener('scroll', updateBackgroundImage);
+        window.addEventListener('load', updateBackgroundImage);
+
+        // services page effects 
+
+        const heading = document.querySelector('.row.slide');
+        console.log('found it:', heading)
+
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            const parallaxAmount = (scrollY * 0.03); // very subtle movement
+
+            heading.style.setProperty('--box-offset', `${parallaxAmount}px`);
+        });
     });
 
     // smooth scrolling  
