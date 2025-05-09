@@ -39,3 +39,14 @@ export function initHeaderBehavior() {
     window.addEventListener('scroll', handleScroll);
     handleScroll(); // run once on load
 }
+
+// Mark the active page
+const currentPage = window.location.pathname.split("/").pop();
+const navItems = document.querySelectorAll(".mobile-nav .nav-item");
+
+navItems.forEach(item => {
+    const href = item.getAttribute("href");
+    if (currentPage === href) {
+        item.classList.add("active");
+    }
+});

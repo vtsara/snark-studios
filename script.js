@@ -97,14 +97,43 @@ function setupHomePage() {
 }
 
 function setupServicesPage() {
-    const heading = document.querySelector('.row.slide');
-    if (!heading) return;
+    const spans = document.querySelectorAll('#type-target span');
+    let index = 0;
+
+    function animateNext() {
+        if (index < spans.length) {
+            spans[index].classList.add('visible');
+
+            // Optional: longer delay after certain words
+            const word = spans[index].textContent.trim().toLowerCase();
+            const longPauseWords = ['probably', 'don\'t'];
+            const delay = longPauseWords.includes(word) ? 1000 : 400;
+
+            index++;
+            setTimeout(animateNext, delay);
+        }
+    }
+    // Start animation after header fade-up completes
+    setTimeout(animateNext, 700);
+
+    const subBox = document.querySelector('.row.slide');
+    const subHeader = document.querySelector('.bebas.animate');
+    const stripe = document.querySelector('.stripe');
+    if (!subBox || !subHeader || !stripe) return;
     window.addEventListener('scroll', () => {
         const scrollY = window.scrollY;
-        const rawOffset = (scrollY * 0.1);
-        const maxOffset = 40
-        const clampedOffset = Math.min(rawOffset, maxOffset);;
-        heading.style.setProperty('--box-offset', `${clampedOffset}px`);
+        const rawOffset = scrollY * 0.1;
+        const maxOffset = 40;
+        const clampedOffset = Math.min(rawOffset, maxOffset);
+        subHeader.style.setProperty('--header-offset', `${clampedOffset}px`);
+
+        const delayedScrollY = Math.max(scrollY - 40, 0); // prevent negative
+        const offsetBox = Math.min(delayedScrollY * 0.1, 40);
+        subBox.style.setProperty('--box-offset', `${offsetBox}px`);
+
+        const stripeTrigger = window.innerHeight * 0.75;
+        if (stripe && stripe.getBoundingClientRect().top < stripeTrigger) stripe.classList.add('and-go');
+
     });
 }
 

@@ -3,18 +3,21 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio | Front-End Web Development + UX | Raleigh, NC</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
     <script type="module" src="site-header.js"></script>
     <script type="module" src="site-footer.js"></script>
+    <script type="module" src="meet.js"></script>
+    <script type="module" src="contact.js"></script>
 </head>
 
 <body>
     <site-header></site-header>
-    <main>
+    <main class="js">
         <header class="entry-header">
-            <h1>Portfolio</h1>
+            <h1 class="fadeup-effect">Portfolio</h1>
         </header><!-- .entry-header -->
         <div id="ss-page-portfolio" class="site-main js" role="main">
             <div class="entry-content">
@@ -31,6 +34,7 @@
 
                 </div>
             </div> <!-- /.entry-content -->
+            <contact-cta></contact-cta>
     </main>
     <site-footer></site-footer>
     <script src="portfolio.js" defer></script>

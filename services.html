@@ -3,11 +3,13 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Front-End Web Development + UX Consulting</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
-    <script type="module" src="/site-header.js"></script>
+    <script type="module" src="site-header.js"></script>
     <script type="module" src="site-footer.js"></script>
+    <script type="module" src="meet.js"></script>
 </head>
 
 <body>
@@ -18,8 +20,11 @@
         </header><!-- .entry-header -->
         <div id="ss-page-svc" class="site-main" role="main">
             <div class="entry-content">
-                <h5>Let's be super honest right away.</h5>
-                <div class="bebas fadeup-effect">You probably don't need to hire me. *cue gasps*</div>
+                <h5 class="fadeup-effect">Let's be super honest right away.</h5>
+                <div class="bebas animate" id="type-target"><span>You probably </span><span>don't
+                    </span><span>need to hire
+                        me.</span><span>*clutches pearls*</span>
+                </div>
                 <div class="intro slide">
                     <p>There are fewer and fewer reasons to hire a developer for a simple website these days — and yet,
                         here you are! Maybe you want something a little special. Maybe you don't have the time, don't
@@ -42,7 +47,7 @@
                                 it should be a button. Bring your own napkin. <span class="blue">Eval: $325, hourly
                                     implementation.</span></p>
                         </div>
-                        <a class="ss-btn blue blk-txt" href="/portfolio">see the turkey</a>
+                        <a class="ss-btn blue blk-txt" href="/portfoli.html">see the turkey</a>
                     </div>
                     <div class="superb svc fadeup-effect">
                         <div>
@@ -54,7 +59,7 @@
                                     style="font-weight: bold;">Hourly. </span>
                             </p>
                         </div>
-                        <a class="ss-btn green blk-txt" href="/portfolio">dev on demand</a>
+                        <a class="ss-btn green blk-txt" href="/portfolio.html">dev on demand</a>
                     </div>
                     <div class="breezy svc fadeup-effect">
                         <div>
@@ -71,10 +76,11 @@
                                     engagement
                                     $750.</span></p>
                         </div>
-                        <a class="ss-btn pink blk-txt" href="mailto:sara@snarkstudios.com">let's play nerds</a>
+                        <a class="ss-btn pink blk-txt" href="/contact.html">let's play nerds</a>
                     </div>
                 </div>
             </div> <!-- /.entry-content -->
+            <meet-cta></meet-cta>
     </main>
     <site-footer></site-footer>
 </body>
